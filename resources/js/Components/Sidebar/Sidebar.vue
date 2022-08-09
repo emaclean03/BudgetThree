@@ -37,7 +37,7 @@
   </aside>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { onMounted } from 'vue'
 import { Inertia } from '@inertiajs/inertia'
 import { sidebarState } from '@/Composables'
@@ -48,10 +48,14 @@ import SidebarFooter from '@/Components/Sidebar/SidebarFooter.vue'
 onMounted(() => {
     window.addEventListener('resize', sidebarState.handleWindowResize)
 
+
     Inertia.on('navigate', () => {
         if (window.innerWidth <= 1024) {
             sidebarState.isOpen = false
         }
     })
 })
+
+
+
 </script>

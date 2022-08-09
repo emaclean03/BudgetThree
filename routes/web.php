@@ -33,7 +33,7 @@ Route::prefix('budget')->middleware('auth')->group(function () {
 });
 
 Route::prefix('account')->middleware('auth')->group(function () {
-    Route::get('/{account}/show', [AccountController::class, 'show'])->name('Account.index'); //show single account
+    Route::get('/{account}/show', [AccountController::class, 'show'])->name('Account.show'); //show single account
     Route::get('/create', [AccountController::class, 'create'])->name('Account.create'); //Create a new account
     Route::post('/store', [AccountController::class, 'store'])->name('Account.store'); //store a new account
     Route::post('/{account}/delete', [AccountController::class, 'destroy'])->name('Account.destroy'); //delete an account
