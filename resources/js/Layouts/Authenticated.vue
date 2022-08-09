@@ -22,7 +22,7 @@
 
       <!-- Page Heading -->
       <header v-if="$slots.header">
-        <div class="p-4 sm:p-6">
+        <div class="p-2 sm:p-6">
           <slot name="header" />
         </div>
       </header>

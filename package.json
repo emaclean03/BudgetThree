@@ -29,6 +29,7 @@
     },
     "dependencies": {
         "@vue/eslint-config-typescript": "^11.0.0",
-        "pinia": "^2.0.17"
+        "pinia": "^2.0.17",
+        "vue3-easy-data-table": "^1.4.12"
     }
 }
