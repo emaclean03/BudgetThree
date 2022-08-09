@@ -54,7 +54,7 @@ import { XIcon } from '@heroicons/vue/outline'
 import { sidebarState } from '@/Composables'
 import SidebarCollapsible from '@/Components/Sidebar/SidebarCollapsible.vue'
 import SidebarCollapsibleItem from '@/Components/Sidebar/SidebarCollapsibleItem.vue'
-import {useBudgetStore} from "@/Store/useBudgetStore";
+import {useBudgetStore} from "@/Store/Budget/useBudgetStore";
 
 const budgetStore = useBudgetStore();
 </script>

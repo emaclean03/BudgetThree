@@ -40,7 +40,7 @@
       <SidebarCollapsibleItem
         v-for="account in accountsStore.accounts"
         :href="route('Account.show', account.id)"
-        :title="account.account_name"
+        :title="account.account_name + ' - $' + account.account_balance"
         :active="route().current('Account.show', account.id)"
       />
     </SidebarCollapsible>
@@ -81,8 +81,8 @@ import PerfectScrollbar from '@/Components/PerfectScrollbar.vue'
 import SidebarCollapsible from '@/Components/Sidebar/SidebarCollapsible.vue'
 import SidebarCollapsibleItem from '@/Components/Sidebar/SidebarCollapsibleItem.vue'
 import { TemplateIcon } from "@heroicons/vue/outline";
-import {useBudgetStore} from "@/Store/useBudgetStore";
-import {useAccountsStore} from "@/Store/useAccountsStore";
+import {useBudgetStore} from "@/Store/Budget/useBudgetStore";
+import {useAccountsStore} from "@/Store/Budget/useAccountsStore";
 
 const budgetStore = useBudgetStore();
 const accountsStore = useAccountsStore();

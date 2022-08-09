@@ -34,7 +34,7 @@ import Button from '@/Components/Button.vue'
 const budgetStore = useBudgetStore();
 
 import {defineProps} from "vue";
-import {useBudgetStore} from "@/Store/useBudgetStore";
+import {useBudgetStore} from "@/Store/Budget/useBudgetStore";
 
 interface Props {
   allBudgets:[{
