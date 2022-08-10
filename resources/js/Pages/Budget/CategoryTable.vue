@@ -9,7 +9,7 @@
 import DataTable from 'vue3-easy-data-table';
 import 'vue3-easy-data-table/dist/style.css';
 import type { Header } from "vue3-easy-data-table";
-import {useCategoriesStore} from "@/Store/Budget/useCategoriesStore";
+import {useCategoriesStore} from "@/Store/Budget/useCategoriesStore.js";
 
 const categoriesStore = useCategoriesStore();
 

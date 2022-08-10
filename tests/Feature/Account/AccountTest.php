@@ -32,8 +32,8 @@ class AccountTest extends TestCase
      * A basic feature test example.
      *
      * @return void
-     */
-    public function test_can_navigate_to_a_budget()
+     *//*
+    public function test_can_navigate_to_a_account()
     {
         $account = Account::factory()->create([
             'budget_id'=>$this->budget_id
@@ -50,7 +50,7 @@ class AccountTest extends TestCase
             );
 
         $response->assertStatus(200);
-    }
+    }*/
 
     public function test_user_can_delete_an_account()
     {
