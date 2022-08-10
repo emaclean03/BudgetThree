@@ -41,6 +41,7 @@ Route::prefix('account')->middleware('auth')->group(function () {
 
 Route::prefix('category')->middleware('auth')->group(function () {
     Route::post('/{budget}/store', [CategoryController::class, 'store'])->name('Category.store'); //store single category
+    Route::post('/{category}/update', [CategoryController::class, 'update'])->name('Category.update'); //store single category
     Route::post('/{category}/delete', [CategoryController::class, 'destroy'])->name('Category.destroy'); //Delete single category
 });
 

@@ -27,11 +27,11 @@
 
 <script setup lang="ts">
 import AuthenticatedLayout from '@/Layouts/Authenticated.vue'
-import {useBudgetStore} from "@/Store/Budget/useBudgetStore";
+import {useBudgetStore} from "@/Store/Budget/useBudgetStore.js";
 import {computed, onMounted} from "vue";
-import {useAccountsStore} from "@/Store/Budget/useAccountsStore";
+import {useAccountsStore} from "@/Store/Budget/useAccountsStore.js";
 import CategoryTable from "@/Pages/Budget/CategoryTable.vue";
-import {useCategoriesStore} from "@/Store/Budget/useCategoriesStore";
+import {useCategoriesStore} from "@/Store/Budget/useCategoriesStore.js";
 import ActionBar from "@/Components/Budget/ActionBar.vue";
 import DateBox from "@/Components/DateBox.vue";
 const budgetStore = useBudgetStore();
