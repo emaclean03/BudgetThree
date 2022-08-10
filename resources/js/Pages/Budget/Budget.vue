@@ -34,6 +34,7 @@ import CategoryTable from "@/Pages/Budget/CategoryTable.vue";
 import {useCategoriesStore} from "@/Store/Budget/useCategoriesStore.js";
 import ActionBar from "@/Components/Budget/ActionBar.vue";
 import DateBox from "@/Components/DateBox.vue";
+
 const budgetStore = useBudgetStore();
 const accountsStore = useAccountsStore();
 const categoriesStore = useCategoriesStore();
@@ -41,7 +42,7 @@ const categoriesStore = useCategoriesStore();
 interface Props{
   budget:{
     budget_name: string,
-    budget_id: number,
+    id: number,
   },
   allAccounts:[{
     account_name: string,
@@ -50,6 +51,9 @@ interface Props{
   }],
   allCategories:[{
     category_name: string,
+    category_amount_assigned: number,
+    category_amount_activity: number,
+    category_amount_available: number,
     id: number,
   }],
   accountBalance: number,
@@ -65,7 +69,7 @@ const categories = computed(() => props.allCategories)
 onMounted(() => {
 //set our state for budgets
   budgetStore.budget_name = budget.value.budget_name
-  budgetStore.budget_id = budget.value.budget_id
+  budgetStore.budget_id = budget.value.id
 //accounts
   accountsStore.accounts = accounts.value;
 //categories

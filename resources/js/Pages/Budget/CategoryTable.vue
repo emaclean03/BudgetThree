@@ -32,11 +32,11 @@
                 </th>
               </tr>
             </thead>
-            <tbody class="divide-y divide-gray-200">
+            <tbody class="divide-y  divide-gray-200">
               <tr
                 v-for="category in categoriesStore.categories"
                 :key="category.id"
-                @click="test(category.id)"
+                class=""
               >
                 <td
                   class="px-6 py-4 text-sm font-medium whitespace-nowrap"
@@ -87,7 +87,6 @@
 import 'vue3-easy-data-table/dist/style.css';
 import {useCategoriesStore} from "@/Store/Budget/useCategoriesStore.js";
 import Input from "@/Components/Input.vue";
-import axios, {AxiosResponse} from "axios";
 import {Inertia} from "@inertiajs/inertia";
 
 const categoriesStore = useCategoriesStore();
