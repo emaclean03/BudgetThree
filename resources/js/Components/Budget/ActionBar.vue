@@ -12,11 +12,11 @@ import {ref} from "vue";
 
   const buttons = ref([
       'Add Category',
-      'Add name',
-      'Add test',
-      'Add test',
-      'Add test',
-      'Add test',
+      'Button 2',
+      'Button 3',
+      'Button 4',
+      'Button 5',
+      'Button 5',
   ])
 
 </script>
