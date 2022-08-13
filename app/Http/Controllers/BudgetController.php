@@ -24,6 +24,7 @@ class BudgetController extends Controller
         Redis::set('current_budget_id', $budget->id);
         $categoryAmount = $budget->category()->get()->sum('category_amount_assigned');
         $accountBalance = $budget->account()->get()->sum('account_balance');
+
         return Inertia::render('Budget/Budget', [
             'budget'=>$budget,
             'allAccounts'=>$budget->account()->get(),

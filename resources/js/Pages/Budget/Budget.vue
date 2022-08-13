@@ -1,7 +1,7 @@
 <template>
   <AuthenticatedLayout title="Dashboard">
     <template #header>
-      <div class="flex flex-row items-center justify-between w-1/2">
+      <div class="flex  flex-row items-center justify-between w-1/2">
         <DateBox />
         <div
           :class="amountToBudget >= 0 ? 'bg-green-600 p-2 text-white rounded-lg': 'bg-red-600 p-2 text-white rounded-lg'"
@@ -15,11 +15,10 @@
         </div>
       </div>
     </template>
-
-    <div class="p-6 overflow-hidden bg-white rounded-md shadow-md dark:bg-dark-eval-1">
-      <div class="flex flex-row mb-4 -mt-4 rounded border-b-2 justify-evenly">
-        <ActionBar />
-      </div>
+    <div class="flex flex-row -mt-4 mb-4 rounded border-b-2 justify-start">
+      <ActionBar />
+    </div>
+    <div class=" overflow-auto p-6 bg-white rounded-md shadow-md dark:bg-dark-eval-1">
       <CategoryTable />
     </div>
   </AuthenticatedLayout>
