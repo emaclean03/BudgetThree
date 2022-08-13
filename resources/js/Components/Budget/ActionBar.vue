@@ -43,7 +43,12 @@ const budgetStore = useBudgetStore();
 
 const submitCallback = () => {
   Inertia.post(`/category/${budgetStore.budget_id}/store`,
-      {category_name: categoryName.value},
+      {
+        category_name: categoryName.value,
+        category_amount_assigned: 0, //TODO: Replaced in modal with default amount"?
+        category_amount_activity: 0,
+        category_amount_available: 0
+      },
       {preserveState: false});
 }
 

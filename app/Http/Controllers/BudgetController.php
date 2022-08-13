@@ -26,26 +26,27 @@ class BudgetController extends Controller
         $accountBalance = $budget->account()->get()->sum('account_balance');
 
         return Inertia::render('Budget/Budget', [
-            'budget'=>$budget,
-            'allAccounts'=>$budget->account()->get(),
-            'accountBalance'=>$accountBalance,
-            'allCategories'=>$budget->category()->get(),
-            'amountToBudget'=>$accountBalance - $categoryAmount
+            'budget' => $budget,
+            'allAccounts' => $budget->account()->get(),
+            'accountBalance' => $accountBalance,
+            'allCategories' => $budget->category()->get(),
+            'amountToBudget' => $accountBalance - $categoryAmount
         ]);
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreBudgetRequest  $request
+     * @param \App\Http\Requests\StoreBudgetRequest $request
      * @return \Illuminate\Http\RedirectResponse
      */
     public function store(StoreBudgetRequest $request)//
     {
         try {
-            Budget::create(['budget_name'=>$request->budget_name]);
-        } catch (\Exception $e){
-            return Response()->json(['exception'=>$e]);
+            Budget::create(['budget_name' => $request->budget_name
+            ]);
+        } catch (\Exception $e) {
+            return Response()->json(['exception' => $e]);
         }
 
         return redirect()->back();
@@ -54,7 +55,7 @@ class BudgetController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Budget  $budget
+     * @param \App\Models\Budget $budget
      * @return \Illuminate\Http\Response
      */
     public function show(Budget $budget)
@@ -65,7 +66,7 @@ class BudgetController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Budget  $budget
+     * @param \App\Models\Budget $budget
      * @return \Illuminate\Http\Response
      */
     public function edit(Budget $budget)
@@ -76,8 +77,8 @@ class BudgetController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateBudgetRequest  $request
-     * @param  \App\Models\Budget  $budget
+     * @param \App\Http\Requests\UpdateBudgetRequest $request
+     * @param \App\Models\Budget $budget
      * @return \Illuminate\Http\Response
      */
     public function update(UpdateBudgetRequest $request, Budget $budget)
@@ -88,15 +89,15 @@ class BudgetController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Budget  $budget
+     * @param \App\Models\Budget $budget
      * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy(Budget $budget)
     {
-        try{
+        try {
             //BudgetObserver is deleting child data on deleting
             $budget->delete();
-        }catch (\Exception $e){
+        } catch (\Exception $e) {
             Log::info($e->getMessage());
         }
 

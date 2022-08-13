@@ -83,6 +83,7 @@ class BudgetTest extends TestCase
         $this->post("/category/${budget}/store", $category->toArray())
             ->assertStatus(302);
 
+
         $this->assertDatabaseHas('categories', $category->toArray());
     }
 
