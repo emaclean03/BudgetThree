@@ -1,7 +1,7 @@
 <template>
   <AuthenticatedLayout title="Dashboard">
     <template #header>
-      <div class="flex flex-row items-center justify-between w-1/2">
+      <div class="flex  flex-row items-center justify-between w-1/2">
         <DateBox />
         <div
           :class="amountToBudget >= 0 ? 'bg-green-600 p-2 text-white rounded-lg': 'bg-red-600 p-2 text-white rounded-lg'"
@@ -15,11 +15,10 @@
         </div>
       </div>
     </template>
-
-    <div class="p-6 overflow-hidden bg-white rounded-md shadow-md dark:bg-dark-eval-1">
-      <div class="flex flex-row mb-4 -mt-4 rounded border-b-2 justify-evenly">
-        <ActionBar />
-      </div>
+    <div class="flex flex-row -mt-4 mb-4 rounded border-b-2 justify-start">
+      <ActionBar />
+    </div>
+    <div class=" overflow-auto p-6 bg-white rounded-md shadow-md dark:bg-dark-eval-1">
       <CategoryTable />
     </div>
   </AuthenticatedLayout>
@@ -34,6 +33,7 @@ import CategoryTable from "@/Pages/Budget/CategoryTable.vue";
 import {useCategoriesStore} from "@/Store/Budget/useCategoriesStore.js";
 import ActionBar from "@/Components/Budget/ActionBar.vue";
 import DateBox from "@/Components/DateBox.vue";
+
 const budgetStore = useBudgetStore();
 const accountsStore = useAccountsStore();
 const categoriesStore = useCategoriesStore();
@@ -41,7 +41,7 @@ const categoriesStore = useCategoriesStore();
 interface Props{
   budget:{
     budget_name: string,
-    budget_id: number,
+    id: number,
   },
   allAccounts:[{
     account_name: string,
@@ -50,6 +50,9 @@ interface Props{
   }],
   allCategories:[{
     category_name: string,
+    category_amount_assigned: number,
+    category_amount_activity: number,
+    category_amount_available: number,
     id: number,
   }],
   accountBalance: number,
@@ -65,7 +68,7 @@ const categories = computed(() => props.allCategories)
 onMounted(() => {
 //set our state for budgets
   budgetStore.budget_name = budget.value.budget_name
-  budgetStore.budget_id = budget.value.budget_id
+  budgetStore.budget_id = budget.value.id
 //accounts
   accountsStore.accounts = accounts.value;
 //categories

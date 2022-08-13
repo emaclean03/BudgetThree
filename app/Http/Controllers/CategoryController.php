@@ -41,9 +41,13 @@ class CategoryController extends Controller
     public function store(Budget $budget, StoreCategoryRequest $request)
     {
         try {
-            $category = Category::make($request->all());
+            $category = Category::make([
+                'category_name'=>$request->category_name,
+                'category_amount_assigned' =>$request->category_amount_assigned,
+                'category_amount_activity' => $request->category_amount_activity,
+                'category_amount_available' => $request->category_amount_available,
+            ]);
             $budget->category()->save($category);
-
         } catch (Exception $e) {
             Log::info($e->getMessage());
             return Redirect::back()->with('error', 'There was an error saving this category');
