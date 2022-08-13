@@ -1,9 +1,9 @@
 <template>
-  <div class="flex flex-col h-[67vh]">
-    <div class="p-1.5 w-full inline-block align-middle ">
+  <div class="flex flex-col h-[67vh] ">
+    <div class=" w-full inline-block align-middle ">
       <div class="border rounded-lg ">
-        <table class="min-w-full divide-y">
-          <thead class="bg-gray-50">
+        <table class="min-w-full divide-y ">
+          <thead class="bg-gray-50 sticky -top-6">
             <tr>
               <th
                 scope="col"
@@ -53,6 +53,7 @@
                 <Input
                   :model-value="category.category_amount_assigned"
                   type="text"
+                  class="border-0"
                   @blur="(e) => updateCategory(category.id, e.target.value, 'category_amount_assigned')"
                   @keyup.enter="$event.target.blur()"
                 />

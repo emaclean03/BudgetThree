@@ -24,9 +24,6 @@
       placeholder="Category name"
       type="text"
     />
-    <template #footer>
-      Footer
-    </template>
   </n-modal>
 </template>
 

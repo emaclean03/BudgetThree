@@ -1,7 +1,7 @@
 <template>
   <AuthenticatedLayout title="Dashboard">
     <template #header>
-      <div class="flex  flex-row items-center justify-between w-1/2">
+      <div class="flex items-start flex-row items-start justify-between w-1/2">
         <DateBox />
         <div
           :class="amountToBudget >= 0 ? 'bg-green-600 p-2 text-white rounded-lg': 'bg-red-600 p-2 text-white rounded-lg'"
@@ -14,8 +14,9 @@
           </p>
         </div>
       </div>
+      <hr class="mt-2">
     </template>
-    <div class="flex flex-row -mt-4 mb-4 rounded border-b-2 justify-start">
+    <div class="flex  flex-row -mt-6 mb-1 rounded border-b-2 justify-start">
       <ActionBar />
     </div>
     <div class=" overflow-auto p-6 bg-white rounded-md shadow-md dark:bg-dark-eval-1">
@@ -38,17 +39,17 @@ const budgetStore = useBudgetStore();
 const accountsStore = useAccountsStore();
 const categoriesStore = useCategoriesStore();
 
-interface Props{
-  budget:{
+interface Props {
+  budget: {
     budget_name: string,
     id: number,
   },
-  allAccounts:[{
+  allAccounts: [{
     account_name: string,
     account_balance: number,
     id: number,
   }],
-  allCategories:[{
+  allCategories: [{
     category_name: string,
     category_amount_assigned: number,
     category_amount_activity: number,
@@ -56,7 +57,7 @@ interface Props{
     id: number,
   }],
   accountBalance: number,
-  amountToBudget:number,
+  amountToBudget: number,
 }
 
 const props = defineProps<Props>()
