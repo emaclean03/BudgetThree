@@ -22,13 +22,13 @@
 
       <!-- Page Heading -->
       <header v-if="$slots.header">
-        <div class="p-4 sm:p-6">
+        <div class="p-2 sm:p-6">
           <slot name="header" />
         </div>
       </header>
 
       <!-- Page Content -->
-      <main class="flex-1 px-4 sm:px-6">
+      <main class="flex-1  px-4 sm:px-6">
         <slot />
       </main>
 

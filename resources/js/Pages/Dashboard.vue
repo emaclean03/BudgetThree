@@ -1,6 +1,5 @@
 <template>
   <AuthenticatedLayout title="Dashboard">
-    <sidebar />
     <template #header>
       <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
         <h2 class="text-xl font-semibold leading-tight">
@@ -32,15 +31,22 @@
 <script setup lang="ts">
 import AuthenticatedLayout from '@/Layouts/Authenticated.vue';
 import Button from '@/Components/Button.vue'
+const budgetStore = useBudgetStore();
 
 import {defineProps} from "vue";
+import {useBudgetStore} from "@/Store/Budget/useBudgetStore";
 
 interface Props {
-  allBudgets: [{
+  allBudgets:[{
     budget_name: string,
   }]
 }
 
-const props = defineProps<Props>();
+const props = defineProps<Props>()
+
+budgetStore.budget_name = 'X'
+
+
+
 
 </script>

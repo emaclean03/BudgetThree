@@ -41,9 +41,13 @@ class CategoryController extends Controller
     public function store(Budget $budget, StoreCategoryRequest $request)
     {
         try {
-            $category = Category::make($request->all());
+            $category = Category::make([
+                'category_name'=>$request->category_name,
+                'category_amount_assigned' =>$request->category_amount_assigned,
+                'category_amount_activity' => $request->category_amount_activity,
+                'category_amount_available' => $request->category_amount_available,
+            ]);
             $budget->category()->save($category);
-
         } catch (Exception $e) {
             Log::info($e->getMessage());
             return Redirect::back()->with('error', 'There was an error saving this category');
@@ -79,11 +83,19 @@ class CategoryController extends Controller
      *
      * @param \App\Http\Requests\UpdateCategoryRequest $request
      * @param \App\Models\Category $category
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function update(UpdateCategoryRequest $request, Category $category)
     {
-        //
+        try {
+            $category->update([
+                $request->target => $request->value
+            ]);
+        } catch (Exception $e){
+            Log::error($e->getMessage());
+        }
+
+        return Redirect::back();
     }
 
     /**

@@ -83,7 +83,8 @@ const props = defineProps({
     },
     active: {
         type: Boolean,
-    }
+    },
+
 })
 
 const { active } = props

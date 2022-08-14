@@ -34,7 +34,7 @@ class BudgetTest extends TestCase
         $budget = Budget::factory()->make();
         $response = $this->post('/budget/', $budget->toArray());
         $this->assertDatabaseHas('budgets', $budget->toArray());
-        $response->assertStatus(200);
+        $response->assertStatus(302);
     }
 
     public function test_budget_can_be_deleted(): void
@@ -63,7 +63,7 @@ class BudgetTest extends TestCase
 
         $response->assertInertia(fn (AssertableInertia $page) =>$page
             ->component('Budget/Budget')
-            ->has('all_categories',3, fn (AssertableInertia $page) => $page
+            ->has('allCategories',3, fn (AssertableInertia $page) => $page
                 ->where('id', $budget->category()->first()->id)
                 ->where('user_id', $this->user->id)
                 ->where('category_name', $budget->category()->first()->category_name)
@@ -82,6 +82,7 @@ class BudgetTest extends TestCase
 
         $this->post("/category/${budget}/store", $category->toArray())
             ->assertStatus(302);
+
 
         $this->assertDatabaseHas('categories', $category->toArray());
     }
