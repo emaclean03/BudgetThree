@@ -19,7 +19,7 @@
 
       <SidebarCollapsibleItem
         href="#"
-        title="Buttons"
+        title="Budget Settings"
         :active="route().current('components.buttons')"
       />
     </SidebarCollapsible>
@@ -29,6 +29,7 @@
     <SidebarCollapsible
       title="Accounts"
       :active="route().current('components.*')"
+      :default-open="true"
     >
       <template #icon>
         <TemplateIcon
@@ -87,5 +88,5 @@ import {useAccountsStore} from "@/Store/Budget/useAccountsStore";
 const budgetStore = useBudgetStore();
 const accountsStore = useAccountsStore();
 
-console.log('sidebar', budgetStore.budget_name)
+
 </script>

@@ -70,9 +70,10 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import {computed, ref} from 'vue'
 import SidebarLink from '@/Components/Sidebar/SidebarLink.vue'
 import { sidebarState } from '@/Composables'
+
 
 const props = defineProps({
     title: {
@@ -84,12 +85,17 @@ const props = defineProps({
     active: {
         type: Boolean,
     },
+  defaultOpen: {
+      type:Boolean,
+      default: true,
+  }
 
 })
 
 const { active } = props
 
 const isOpen = ref(active)
+
 
 const beforeEnter = (el) => {
     el.style.maxHeight = `0px`
