@@ -11,9 +11,11 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Redis;
 use Inertia\Inertia;
 use Inertia\Response;
+use phpDocumentor\Reflection\Types\Collection;
 
 class BudgetController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -43,7 +45,8 @@ class BudgetController extends Controller
     public function store(StoreBudgetRequest $request)//
     {
         try {
-            Budget::create(['budget_name' => $request->budget_name
+            Budget::create([
+                'budget_name' => $request->budget_name,
             ]);
         } catch (\Exception $e) {
             return Response()->json(['exception' => $e]);
